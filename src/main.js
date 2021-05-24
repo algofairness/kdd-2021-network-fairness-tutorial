@@ -1,9 +1,9 @@
 function setupReferences(sel)
 {
-    sel.append("a").attr("href", (d, i) => `#${String(i+1)}`).text((d, i) => `[${String(i+1)}] `);
+    sel.append("a").attr("href", (d, i) => `#${String(i+1)}`).text((d, i) => `[${String(i+1)}]`);
     
     let articles = sel.filter(d => d.entryType === 'article');
-    articles.append("span").text(d => `${d.entryTags.author}. `);
+    articles.append("span").text(d => ` ${d.entryTags.author}. `);
     articles.append("span").append("em").text(d => `${d.entryTags.title}. `);
     articles.append("span").text(d => `${d.entryTags.journal}. `);
     articles.filter(d => d.entryTags.volume !== undefined).append("span").text(d => d.entryTags.volume);
@@ -32,6 +32,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let header = refsEl.previousElementSibling;
 
     console.log(bibtexEntries);
+
+
+    // create references section
     
     d3.select("#refs").remove();
     d3.select("#refslist").append("ul")
@@ -40,4 +43,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .enter()
         .append("li")
         .call(setupReferences);
+
+    // replace references in text
+    
 });
