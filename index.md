@@ -31,17 +31,17 @@ We'll host tutorial material on [this GitHub repo](https://github.com/algofairne
 
 ## Social Science, Fairness, and Networks (45 mins)
 
-To introduce and motivate the overall tutorial from a social science perspective, we’ll begin by discussing [boyd et al.'s paper on The Networked Nature of Algorithmic Discrimination][1]. 
+To introduce and motivate the overall tutorial from a social science perspective, we’ll begin by discussing [boyd et al.'s paper on The Networked Nature of Algorithmic Discrimination](#1).
 This paper establishes the idea that fairness in networks is not just an allocation problem on a graph, but is about how social structures can create groups and patterns of inequality mediated by access.  One motivating example they describe, which we will also use for this tutorial, is that of a social network (such as LinkedIn) focused on access to job information, where who you know can directly determine whether you receive a job.  Thus, they argue, your social network connections (or lack thereof) can be used to discriminate against you.
 
 This idea --- the possibility of discrimination based on social network position --- is the motivating theme for this tutorial.  The tutorial will begin by describing the social science rationale behind these concerns.
 
-**What are networks and how they are created.** In order to understand how discrimination might manifest in social networks, we need to understand more about what these networks are and how they are created.  Social networks \citep{boyd2007social}, or networks where nodes represent individuals and edges represent connections between those people, exist in both online and offline settings.  These networks are known to exhibit \emph{homophily} -- the tendency for people to be more likely to have ties (edges) in a social network if they share demographic characteristics and/or have common interests \citep{shalizi2011homophily}.  Thus, even without additional node attributes, networks can encode demographic information about individuals.  Additionally, and especially in online settings where links between people can sometimes be the results of recommendation algorithms, these connections between similar individuals become reinforced through a property known as \emph{contagion}.
+**What are networks and how they are created.** In order to understand how discrimination might manifest in social networks, we need to understand more about what these networks are and how they are created.  Social networks [[2]](#2), or networks where nodes represent individuals and edges represent connections between those people, exist in both online and offline settings.  These networks are known to exhibit *homophily* -- the tendency for people to be more likely to have ties (edges) in a social network if they share demographic characteristics and/or have common interests [[3]](#3).  Thus, even without additional node attributes, networks can encode demographic information about individuals.  Additionally, and especially in online settings where links between people can sometimes be the results of recommendation algorithms, these connections between similar individuals become reinforced through a property known as *contagion*.
 
 **Social capital in networks, the view from sociology**
-Granovetter's seminal work on The Strength of Weak Ties introduced the idea that position in a network may determine an individual's access to resources and that such access may be based on meso-structures in a network beyond the scope of an individual's direct ties \citep{granovetter1973strength}.  In a job-focused social network, such weak ties between individuals who do not share other acquaintances, allow information about jobs to flow further through the network, letting individuals hear about jobs they might not otherwise know about.  This tangible importance of an individual's position in a network has been further developed in the notion of social capital.
+Granovetter's seminal work on The Strength of Weak Ties introduced the idea that position in a network may determine an individual's access to resources and that such access may be based on meso-structures in a network beyond the scope of an individual's direct ties [[4]](#4).  In a job-focused social network, such weak ties between individuals who do not share other acquaintances, allow information about jobs to flow further through the network, letting individuals hear about jobs they might not otherwise know about.  This tangible importance of an individual's position in a network has been further developed in the notion of social capital.
 
-\emph{Social capital} is the idea that an individual's position in a network is a form of wealth, privilege, ad power \citep{burt2000network,coleman1988social}.  The idea of social capital has different nuanced results and implications.  \emph{Contagion}, discussed earlier as well, is when individuals with social capital lead other individuals to copy their behavior.  \emph{Network models of prominence} assume that social capital is an indication of quality or resources.  \emph{Closure} is the related property where highly connected networks spread information widely, while \emph{brokerage} is the ability of highly connected bridge nodes to have the social capital that comes from controlling access to information.
+*Social capital* is the idea that an individual's position in a network is a form of wealth, privilege, ad power [[5]](#5) [[6]](#6) \citep{burt2000network,coleman1988social}.  The idea of social capital has different nuanced results and implications.  *Contagion*, discussed earlier as well, is when individuals with social capital lead other individuals to copy their behavior.  *Network models of prominence* assume that social capital is an indication of quality or resources.  *Closure* is the related property where highly connected networks spread information widely, while *brokerage* is the ability of highly connected bridge nodes to have the social capital that comes from controlling access to information.
 
 The tutorial will discuss these and related ideas from sociology so that participants can understand how social networks and fairness are connected.
 
@@ -92,7 +92,7 @@ characteristics \citep{aral2018social,aral2012identifying}.
 
 ## Recent Research on Fairness in Networks (45 mins)
 
-Armed with this mathematical framework, we will dive into a presentation of research on fairness in networks. We will start with a discussion of \emph{access} as the quantity that needs to be equitably distributed. Access in a network has typically been measured as some utility function of the probability of receiving information via a flow mechanism such as above. We will discuss the different utility functions that have been proposed in the literature. 
+Armed with this mathematical framework, we will dive into a presentation of research on fairness in networks. We will start with a discussion of *access* as the quantity that needs to be equitably distributed. Access in a network has typically been measured as some utility function of the probability of receiving information via a flow mechanism such as above. We will discuss the different utility functions that have been proposed in the literature. 
 
 **Equity** Following this, we will review the axiomatic frameworks used to decide what it means for access to be equitable. Different works have proposed different principled arguments for deriving different measures of equity, such as preventing rich from getting richer, or ensuring that the least advantaged gain access (a Rawlsian maximin argument for example). We will briefly discuss concepts from welfare theory that are used in some works. The papers that we will cover here include those by 
 \cite{tsang}, \cite{fish} and \cite{rahmattalabi}
@@ -103,8 +103,243 @@ These papers also represent two different frames for thinking about equity: a mo
 
 
 
-**Interventions**. If we recognize that patterns of inequity manifest in a social network and that there are ways to measure it, how might we rectify this with interventions? In the world of influence maximization, interventions correspond to \emph{seeding} a network with carefully chosen nodes to improve access. We will review algorithms in the works above to intervene to optimize for fair access. The underlying algorithmic questions turn out to be much harder in general, not always admitting close-to-optimal solutions via submodular maximization except in special cases \citep{fish,tsang,rahmattalabi,ali2019fairness,10.1145/3366424.3383555}. We will also review work \citep{stoica20} that seeks to design models for network formation that admit more efficient interventions that are both effective and fair under appropriate definitions of equity. 
+**Interventions**. If we recognize that patterns of inequity manifest in a social network and that there are ways to measure it, how might we rectify this with interventions? In the world of influence maximization, interventions correspond to *seeding* a network with carefully chosen nodes to improve access. We will review algorithms in the works above to intervene to optimize for fair access. The underlying algorithmic questions turn out to be much harder in general, not always admitting close-to-optimal solutions via submodular maximization except in special cases \citep{fish,tsang,rahmattalabi,ali2019fairness,10.1145/3366424.3383555}. We will also review work \citep{stoica20} that seeks to design models for network formation that admit more efficient interventions that are both effective and fair under appropriate definitions of equity. 
 
 
 ## Future Directions (20 mins)
 We will close with a group discussion of suggested future directions for exploration of this field. As prompts, we will encourage the participants to reflect on their interactive activity and how the questions they posed there are addressed (or not) by current research efforts.
+
+# References
+
+<a id="1">[1] boyd, danah and Levy, Karen and Marwick, Alice. *The networked nature of algorithmic discrimination*. Data and Discrimination: Collected Essays. Open Technology Institute, 2014.</a> <!-- boyd2014networked -->
+
+<a id="2">[2] boyd, danah and Ellison, Nicole B. *Social network sites: Definition, history, and scholarship*. Journal of computer-mediated Communication, 13:1 (210--230). Wiley Online Library, 2007.</a> <!-- boyd2007social -->
+
+<a id="3">[3] Shalizi, Cosma Rohilla and Thomas, Andrew C. *Homophily and contagion are generically confounded in observational social network studies*. Sociological methods & research, 40:2 (211--239). Sage Publications, 2011.</a> <!-- shalizi2011homophily -->
+
+<a id="4">[4] Granovetter, Mark S. *The strength of weak ties*. American journal of sociology, 78:6 (1360--1380). University of Chicago Press, 1973.</a> <!-- granovetter1973strength -->
+
+<a id="5">[5] Burt, Ronald S. *The network structure of social capital*. Research in organizational behavior, 22 (345--423). Elsevier, 2000</a> <!-- burt2000network -->
+
+<a id="6">[6] Coleman, James S. *Social capital in the creation of human capital*. American journal of sociology, 94 (S95--S120). University of Chicago Press, 1988.</a> <!-- coleman1988social -->
+
+@inproceedings{dwork2012fairness,
+  title={Fairness through awareness},
+  author={Dwork, Cynthia and Hardt, Moritz and Pitassi, Toniann and Reingold, Omer and Zemel, Richard},
+  booktitle={Proceedings of the 3rd innovations in theoretical computer science conference},
+  pages={214--226},
+  year={2012}
+}
+
+@inproceedings{zafar2017fairness,
+  title={Fairness beyond disparate treatment \& disparate impact: Learning classification without disparate mistreatment},
+  author={Zafar, Muhammad Bilal and Valera, Isabel and Gomez Rodriguez, Manuel and Gummadi, Krishna P},
+  booktitle={Proceedings of the 26th international conference on world wide web},
+  pages={1171--1180},
+  year={2017}
+}
+
+@inproceedings{hardt2016equality,
+  title={Equality of Opportunity in Supervised Learning},
+  author={Hardt, Moritz and Price, Eric and Srebro, Nati},
+  booktitle={NeurIPS},
+  year={2016}
+}
+
+@inproceedings{feldman2015certifying,
+  title={Certifying and removing disparate impact},
+  author={Feldman, Michael and Friedler, Sorelle A and Moeller, John and Scheidegger, Carlos and Venkatasubramanian, Suresh},
+  booktitle={proceedings of the 21th ACM SIGKDD international conference on knowledge discovery and data mining},
+  pages={259--268},
+  year={2015}
+}
+
+@inproceedings{friedler2019comparative,
+  title={A comparative study of fairness-enhancing interventions in machine learning},
+  author={Friedler, Sorelle A and Scheidegger, Carlos and Venkatasubramanian, Suresh and Choudhary, Sonam and Hamilton, Evan P and Roth, Derek},
+  booktitle={Proceedings of the conference on fairness, accountability, and transparency},
+  pages={329--338},
+  year={2019}
+}
+
+@article{clauset2015systematic,
+  title={Systematic inequality and hierarchy in faculty hiring networks},
+  author={Clauset, Aaron and Arbesman, Samuel and Larremore, Daniel B},
+  journal={Science advances},
+  volume={1},
+  number={1},
+  pages={e1400005},
+  year={2015},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{morgan2018prestige,
+  title={Prestige drives epistemic inequality in the diffusion of scientific ideas},
+  author={Morgan, Allison C and Economou, Dimitrios J and Way, Samuel F and Clauset, Aaron},
+  journal={EPJ Data Science},
+  volume={7},
+  number={1},
+  pages={40},
+  year={2018},
+  publisher={Springer Berlin Heidelberg}
+}
+
+@article{way2019productivity,
+  title={Productivity, prominence, and the effects of academic environment},
+  author={Way, Samuel F and Morgan, Allison C and Larremore, Daniel B and Clauset, Aaron},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={116},
+  number={22},
+  pages={10729--10733},
+  year={2019},
+  publisher={National Acad Sciences}
+}
+
+@inproceedings{fish2019gaps,
+  title={Gaps in Information Access in Social Networks},
+  author={Fish, Benjamin and Bashardoust, Ashkan and boyd, danah and Friedler, Sorelle and Scheidegger, Carlos and Venkatasubramanian, Suresh},
+  booktitle={The World Wide Web Conference},
+  pages={480--490},
+  year={2019}
+}
+
+@inproceedings{tsang,
+  title     = {Group-Fairness in Influence Maximization},
+  author    = {Tsang, Alan and Wilder, Bryan and Rice, Eric and Tambe, Milind and Zick, Yair},
+  booktitle = {Proceedings of the Twenty-Eighth International Joint Conference on
+               Artificial Intelligence, {IJCAI-19}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},             
+  pages     = {5997--6005},
+  year      = {2019},
+  month     = {7},
+  doi       = {10.24963/ijcai.2019/831},
+  url       = {https://doi.org/10.24963/ijcai.2019/831},
+}
+@inproceedings{stoica18,
+author = {Stoica, Ana-Andreea and Riederer, Christopher and Chaintreau, Augustin},
+title = {Algorithmic Glass Ceiling in Social Networks: The Effects of Social Recommendations on Network Diversity},
+year = {2018},
+isbn = {9781450356398},
+publisher = {International World Wide Web Conferences Steering Committee},
+address = {Republic and Canton of Geneva, CHE},
+url = {https://doi.org/10.1145/3178876.3186140},
+doi = {10.1145/3178876.3186140},
+abstract = {As social recommendations such as friend suggestions and people to follow become increasingly popular and influential on the growth of social media, we find that prominent social recommendation algorithms can exacerbate the under-representation of certain demographic groups at the top of the social hierarchy. To study this imbalance in online equal opportunities, we leverage new Instagram data and offer for the first time an analysis that studies the effect of gender, homophily and growth dynamics under social recommendations. Our mathematical analysis demonstrates the existence of an algorithmic glass ceiling that exhibits all the properties of the metaphorical social barrier that hinders groups like women or people of color from attaining equal representation. What raises concern is that our proof shows that under fixed minority and homophily parameters the algorithmic effect is systematically larger than the glass ceiling generated by the spontaneous growth of social networks. We discuss ways to address this concern in future design.},
+booktitle = {Proceedings of the 2018 World Wide Web Conference},
+pages = {923–932},
+numpages = {10},
+keywords = {random walks, homophily, fairness, social recommender},
+location = {Lyon, France},
+series = {WWW '18}
+}
+
+@article{rahmattalabi,
+  author    = {Aida Rahmattalabi and
+               Shahin Jabbari and
+               Himabindu Lakkaraju and
+               Phebe Vayanos and
+               Eric Rice and
+               Milind Tambe},
+  title     = {Fair Influence Maximization: {A} Welfare Optimization Approach},
+  journal   = {CoRR},
+  volume    = {abs/2006.07906},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2006.07906},
+  archivePrefix = {arXiv},
+  eprint    = {2006.07906},
+  timestamp = {Wed, 17 Jun 2020 14:28:54 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2006-07906.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{fish,
+author = {Fish, Benjamin and Bashardoust, Ashkan and Boyd, Danah and Friedler, Sorelle and Scheidegger, Carlos and Venkatasubramanian, Suresh},
+title = {Gaps in Information Access in Social Networks},
+year = 2019,
+isbn = 9781450366748,
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3308558.3313680},
+doi = {10.1145/3308558.3313680},
+abstract = {The study of influence maximization in social networks has largely ignored disparate effects these algorithms might have on the individuals contained in the social network. Individuals may place a high value on receiving information, e.g. job openings or advertisements for loans. While well-connected individuals at the center of the network are likely to receive the information that is being distributed through the network, poorly connected individuals are systematically less likely to receive the information, producing a gap in access to the information between individuals. In this work, we study how best to spread information in a social network while minimizing this access gap. We propose to use the maximin social welfare function as an objective function, where we maximize the minimum probability of receiving the information under an intervention. We prove that in this setting this welfare function constrains the access gap whereas maximizing the expected number of nodes reached does not. We also investigate the difficulties of using the maximin, and present hardness results and analysis for standard greedy strategies. Finally, we investigate practical ways of optimizing for the maximin, and give empirical evidence that a simple greedy-based strategy works well in practice. },
+booktitle = {The World Wide Web Conference},
+pages = {480–490},
+numpages = 11,
+keywords = {social networks, influence maximization, fairness},
+location = {San Francisco, CA, USA},
+series = {WWW '19}
+}
+
+
+@article{ali2019fairness,
+  title={On the fairness of time-critical influence maximization in social networks},
+  author={Ali, Junaid and Babaei, Mahmoudreza and Chakraborty, Abhijnan and Mirzasoleiman, Baharan and Gummadi, Krishna P and Singla, Adish},
+  journal={arXiv preprint arXiv:1905.06618},
+  year={2019}
+}
+
+@article{augustin21,
+  title={Chasm in Hegemony: Explaining and Reproducing Disparities in Homophilous Networks},
+  author={Zhang, Yiguang and Han, Jessy Xinyi and Mahajan, Ilica and Bengani, Priyanjana and Chaintreau, Augustin},
+  journal={arXiv preprint arXiv:2102.11925},
+  year={2021}
+}
+
+@inproceedings{stoica20,
+author = {Stoica, Ana-Andreea and Han, Jessy Xinyi and Chaintreau, Augustin},
+title = {Seeding Network Influence in Biased Networks and the Benefits of Diversity},
+year = {2020},
+isbn = {9781450370233},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3366423.3380275},
+doi = {10.1145/3366423.3380275},
+abstract = {The problem of social influence maximization is widely applicable in designing viral campaigns, news dissemination, or medical aid. State-of-the-art algorithms often select “early adopters” that are most central in a network unfortunately mirroring or exacerbating historical biases and leaving under-represented communities out of the loop. Through a theoretical model of biased networks, we characterize the intricate relationship between diversity and efficiency, which sometimes may be at odds but may also reinforce each other. Most importantly, we find a mathematically proven analytical condition under which more equitable choices of early adopters lead simultaneously to fairer outcomes and larger outreach. Analysis of data on the DBLP network confirms that our condition is often met in real networks. We design and test a set of algorithms leveraging the network structure to optimize the diffusion of a message while avoiding to create disparate impact among participants based on their demographics, such as gender or race.},
+booktitle = {Proceedings of The Web Conference 2020},
+pages = {2089–2098},
+numpages = {10},
+keywords = {influence, graph algorithms, social networks, fairness},
+location = {Taipei, Taiwan},
+series = {WWW '20}
+}
+
+@inproceedings{10.1145/3366424.3383555,
+author = {Farnad, Golnoosh and Babaki, Behrouz and Gendreau, Michel},
+title = {A Unifying Framework for Fairness-Aware Influence Maximization},
+year = {2020},
+isbn = {9781450370240},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3366424.3383555},
+doi = {10.1145/3366424.3383555},
+abstract = {The problem of selecting a subset of nodes with greatest influence in a graph, commonly known as influence maximization, has been well studied over the past decade. This problem has real world applications which can potentially affect lives of individuals. Algorithmic decision making in such domains raises concerns about their societal implications. One of these concerns, which surprisingly has only received limited attention so far, is algorithmic bias and fairness. We propose a flexible framework that extends and unifies the existing works in fairness-aware influence maximization. This framework is based on an integer programming formulation of the influence maximization problem. The fairness requirements are enforced by adding linear constraints or modifying the objective function. Contrary to the previous work which designs specific algorithms for each variant, we develop a formalism which is general enough for specifying different notions of fairness. A problem defined in this formalism can be then solved using efficient mixed integer programming solvers. The experimental evaluation indicates that our framework not only is general but also is competitive with existing algorithms. },
+booktitle = {Companion Proceedings of the Web Conference 2020},
+pages = {714–722},
+numpages = {9},
+keywords = {Group Fairness, Influence Maximization, Mixed Integer Programming},
+location = {Taipei, Taiwan},
+series = {WWW '20}
+}
+
+@article{aral2018social,
+  title={Social influence maximization under empirical influence models},
+  author={Aral, Sinan and Dhillon, Paramveer S},
+  journal={Nature human behaviour},
+  volume={2},
+  number={6},
+  pages={375--382},
+  year={2018},
+  publisher={Nature Publishing Group}
+}
+
+@article{aral2012identifying,
+  title={Identifying influential and susceptible members of social networks},
+  author={Aral, Sinan and Walker, Dylan},
+  journal={Science},
+  volume={337},
+  number={6092},
+  pages={337--341},
+  year={2012},
+  publisher={American Association for the Advancement of Science}
+}
+
