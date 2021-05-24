@@ -1,3 +1,5 @@
+/*global bibtexParse*/
+
 function setupReferences(sel)
 {
     sel.append("a").attr("id", (d, i) => `${String(i+1)}`);
@@ -23,21 +25,15 @@ function setupReferences(sel)
     confprocs.append("span").text(d => `${d.entryTags.booktitle}. `);
     confprocs.filter(d => d.entryTags.pages !== undefined).append("span").text(d => ` ${d.entryTags.pages}.`);
     confprocs.append("span").text(d => `${d.entryTags.year}.`);
-    
-    // sel.text(d => d.citationKey);
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
     let refsEl = d3.selectAll("#refs").node();
-    let bibtexEntries = bibtexParse.toJSON(refs.innerText);
+    let bibtexEntries = bibtexParse.toJSON(refsEl.innerText);
     let bibtexKeys = bibtexEntries.map(e => e.citationKey);
     let header = refsEl.previousElementSibling;
 
-    console.log(bibtexEntries);
-
-
     // create references section
-    
     d3.select("#refs").remove();
     d3.select("#refslist").append("ul")
         .selectAll("li")
