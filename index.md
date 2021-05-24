@@ -3,6 +3,10 @@ layout: default
 title: {{ site.name }}
 ---
 
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="lib/bibtexParser.js"></script>
+<script src="src/main.js"></script>
+
 # Fairness in Networks, a tutorial
 
 * Where: [KDD 2021](https://www.kdd.org/kdd2021/)
@@ -31,7 +35,7 @@ We'll host tutorial material on [this GitHub repo](https://github.com/algofairne
 
 ## Social Science, Fairness, and Networks (45 mins)
 
-To introduce and motivate the overall tutorial from a social science perspective, we’ll begin by discussing [boyd et al.'s paper on The Networked Nature of Algorithmic Discrimination](#1).
+To introduce and motivate the overall tutorial from a social science perspective, we’ll begin by discussing boyd et al.'s paper on The Networked Nature of Algorithmic Discrimination \citep(#1).
 This paper establishes the idea that fairness in networks is not just an allocation problem on a graph, but is about how social structures can create groups and patterns of inequality mediated by access.  One motivating example they describe, which we will also use for this tutorial, is that of a social network (such as LinkedIn) focused on access to job information, where who you know can directly determine whether you receive a job.  Thus, they argue, your social network connections (or lack thereof) can be used to discriminate against you.
 
 This idea --- the possibility of discrimination based on social network position --- is the motivating theme for this tutorial.  The tutorial will begin by describing the social science rationale behind these concerns.
@@ -41,7 +45,7 @@ This idea --- the possibility of discrimination based on social network position
 **Social capital in networks, the view from sociology**
 Granovetter's seminal work on The Strength of Weak Ties introduced the idea that position in a network may determine an individual's access to resources and that such access may be based on meso-structures in a network beyond the scope of an individual's direct ties [[4]](#4).  In a job-focused social network, such weak ties between individuals who do not share other acquaintances, allow information about jobs to flow further through the network, letting individuals hear about jobs they might not otherwise know about.  This tangible importance of an individual's position in a network has been further developed in the notion of social capital.
 
-*Social capital* is the idea that an individual's position in a network is a form of wealth, privilege, ad power [[5]](#5) [[6]](#6) \citep{burt2000network,coleman1988social}.  The idea of social capital has different nuanced results and implications.  *Contagion*, discussed earlier as well, is when individuals with social capital lead other individuals to copy their behavior.  *Network models of prominence* assume that social capital is an indication of quality or resources.  *Closure* is the related property where highly connected networks spread information widely, while *brokerage* is the ability of highly connected bridge nodes to have the social capital that comes from controlling access to information.
+*Social capital* is the idea that an individual's position in a network is a form of wealth, privilege, ad power [[5]](#5) [[6]](#6).  The idea of social capital has different nuanced results and implications.  *Contagion*, discussed earlier as well, is when individuals with social capital lead other individuals to copy their behavior.  *Network models of prominence* assume that social capital is an indication of quality or resources.  *Closure* is the related property where highly connected networks spread information widely, while *brokerage* is the ability of highly connected bridge nodes to have the social capital that comes from controlling access to information.
 
 The tutorial will discuss these and related ideas from sociology so that participants can understand how social networks and fairness are connected.
 
@@ -111,17 +115,23 @@ We will close with a group discussion of suggested future directions for explora
 
 # References
 
-<a id="1">[1] boyd, danah and Levy, Karen and Marwick, Alice. *The networked nature of algorithmic discrimination*. Data and Discrimination: Collected Essays. Open Technology Institute, 2014.</a> <!-- boyd2014networked -->
+<pre id="refs">
+@article{boyd2014networked,
+  title={The networked nature of algorithmic discrimination},
+  author={boyd, danah and Levy, Karen and Marwick, Alice},
+  journal={Data and Discrimination: Collected Essays. Open Technology Institute},
+  year={2014}
+}
 
-<a id="2">[2] boyd, danah and Ellison, Nicole B. *Social network sites: Definition, history, and scholarship*. Journal of computer-mediated Communication, 13:1 (210--230). Wiley Online Library, 2007.</a> <!-- boyd2007social -->
-
-<a id="3">[3] Shalizi, Cosma Rohilla and Thomas, Andrew C. *Homophily and contagion are generically confounded in observational social network studies*. Sociological methods & research, 40:2 (211--239). Sage Publications, 2011.</a> <!-- shalizi2011homophily -->
-
-<a id="4">[4] Granovetter, Mark S. *The strength of weak ties*. American journal of sociology, 78:6 (1360--1380). University of Chicago Press, 1973.</a> <!-- granovetter1973strength -->
-
-<a id="5">[5] Burt, Ronald S. *The network structure of social capital*. Research in organizational behavior, 22 (345--423). Elsevier, 2000</a> <!-- burt2000network -->
-
-<a id="6">[6] Coleman, James S. *Social capital in the creation of human capital*. American journal of sociology, 94 (S95--S120). University of Chicago Press, 1988.</a> <!-- coleman1988social -->
+@article{burt2000network,
+  title={The network structure of social capital},
+  author={Burt, Ronald S},
+  journal={Research in organizational behavior},
+  volume={22},
+  pages={345--423},
+  year={2000},
+  publisher={Elsevier}
+}
 
 @inproceedings{dwork2012fairness,
   title={Fairness through awareness},
@@ -184,6 +194,17 @@ We will close with a group discussion of suggested future directions for explora
   publisher={Springer Berlin Heidelberg}
 }
 
+@article{boyd2007social,
+  title={Social network sites: Definition, history, and scholarship},
+  author={boyd, danah and Ellison, Nicole B},
+  journal={Journal of computer-mediated Communication},
+  volume={13},
+  number={1},
+  pages={210--230},
+  year={2007},
+  publisher={Wiley Online Library}
+}
+
 @article{way2019productivity,
   title={Productivity, prominence, and the effects of academic environment},
   author={Way, Samuel F and Morgan, Allison C and Larremore, Daniel B and Clauset, Aaron},
@@ -201,6 +222,28 @@ We will close with a group discussion of suggested future directions for explora
   booktitle={The World Wide Web Conference},
   pages={480--490},
   year={2019}
+}
+
+@article{granovetter1973strength,
+  title={The strength of weak ties},
+  author={Granovetter, Mark S},
+  journal={American journal of sociology},
+  volume={78},
+  number={6},
+  pages={1360--1380},
+  year={1973},
+  publisher={University of Chicago Press}
+}
+
+@article{shalizi2011homophily,
+  title={Homophily and contagion are generically confounded in observational social network studies},
+  author={Shalizi, Cosma Rohilla and Thomas, Andrew C},
+  journal={Sociological methods \& research},
+  volume={40},
+  number={2},
+  pages={211--239},
+  year={2011},
+  publisher={Sage Publications Sage CA: Los Angeles, CA}
 }
 
 @inproceedings{tsang,
@@ -343,3 +386,13 @@ series = {WWW '20}
   publisher={American Association for the Advancement of Science}
 }
 
+@article{coleman1988social,
+  title={Social capital in the creation of human capital},
+  author={Coleman, James S},
+  journal={American journal of sociology},
+  volume={94},
+  pages={S95--S120},
+  year={1988},
+  publisher={University of Chicago Press}
+}
+</pre>
