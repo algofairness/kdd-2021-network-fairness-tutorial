@@ -29,7 +29,7 @@ function setupReferences(sel)
 window.addEventListener('DOMContentLoaded', (event) => {
     let refsEl = d3.selectAll("#refs").node();
     let bibtexEntries = bibtexParse.toJSON(refs.innerText);
-    let bibtexKeys = bibtexKeys.map(e => e.citationKey);
+    let bibtexKeys = bibtexEntries.map(e => e.citationKey);
     let header = refsEl.previousElementSibling;
 
     console.log(bibtexEntries);
