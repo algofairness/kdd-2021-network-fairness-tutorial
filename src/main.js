@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let citepR = /\\citep{([^}]+)}/g;
     document.querySelectorAll("p")
         .forEach(p => {
-            let replacement = p.innerText.replaceAll(citepR, (m, p, off, s) => 
+            let replacement = p.innerHTML.replaceAll(citepR, (m, p, off, s) => 
                 p.split(',')
                     .map(s => {
                         s = s.trim();
@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let citeR = /\\cite{([^}]+)}/g;
     document.querySelectorAll("p")
         .forEach(p => {
-            let replacement = p.innerText.replaceAll(citeR, (m, p, off, s) => {
+            let replacement = p.innerHTML.replaceAll(citeR, (m, p, off, s) => {
                 p = p.trim();
                 let index = bibtexKeys.indexOf(p);
                 let v = String(index + 1);
