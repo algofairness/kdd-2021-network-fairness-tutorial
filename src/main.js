@@ -1,5 +1,7 @@
 function setupReferences(sel)
 {
+    sel.append("a").attr("href", (d, i) => `#${String(i+1)}`).text((d, i) => `[${String(i+1)}] `);
+    
     let articles = sel.filter(d => d.entryType === 'article');
     articles.append("span").text(d => `${d.entryTags.author}. `);
     articles.append("span").append("em").text(d => `${d.entryTags.title}. `);
