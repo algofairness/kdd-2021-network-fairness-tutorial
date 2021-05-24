@@ -13,7 +13,7 @@ function setupReferences(sel)
     articles.filter(d => d.entryTags.publisher !== undefined).append("span").text(d => `${d.entryTags.pages}, `);
     articles.append("span").text(d => `${d.entryTags.year}.`);
 
-    let confprocs = self.filter(d => d.entryType === 'inproceedings');
+    let confprocs = sel.filter(d => d.entryType === 'inproceedings');
 
     confprocs.append("span").text(d => `${d.entryTags.author}. `);
     confprocs.append("span").append("em").text(d => `${d.entryTags.title}. `);
