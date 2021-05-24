@@ -26,11 +26,6 @@ function setupReferences(sel)
     // sel.text(d => d.citationKey);
 }
 
-function replaceCites(sel)
-{
-    sel.
-}
-
 window.addEventListener('DOMContentLoaded', (event) => {
     let refsEl = d3.selectAll("#refs").node();
     let bibtexEntries = bibtexParse.toJSON(refs.innerText);
