@@ -17,7 +17,7 @@ function setupReferences(sel)
 
     let confprocs = sel.filter(d => d.entryType === 'inproceedings');
 
-    confprocs.append("span").text(d => `${d.entryTags.author}. `);
+    confprocs.append("span").text(d => ` ${d.entryTags.author}. `);
     confprocs.append("span").append("em").text(d => `${d.entryTags.title}. `);
     confprocs.append("span").text(d => `${d.entryTags.booktitle}. `);
     confprocs.filter(d => d.entryTags.pages !== undefined).append("span").text(d => ` ${d.entryTags.pages}.`);
