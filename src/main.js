@@ -46,15 +46,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .call(setupReferences);
 
     // replace references in text
-
     let citepR = /\\citep{([^}]+)}/g;
     document.querySelectorAll("p")
         .forEach(p => {
-            let replacement = p.innerText.replaceAll(citepR, (m, p, off, s) => {
+            let replacement = p.innerText.replaceAll(citepR, (m, p, off, s) => 
+                p.split(',')
+                    .map(s => {
+                        s = s.trim();
+                        let index = bibtexKeys.indexOf(s);
+                        let v = String(index + 1);
+                        return `<a href="#${v}">[${v}]</a>`;
+                    }).join(" "));
+            p.innerHTML = replacement;
+        });
+
+    function authorName(e) {
+        let authorNames = e.entryTags.author.split(" and ");
+        let authorSurnames = authorNames.map(s => s.split(", ")[0]);
+        if (authorSurnames.length > 2) {
+            return `${authorSurnames[0]} et al.`;
+        } else if (authorSurnames.length === 2) {
+            return `${authorSurnames[0]} and ${authorSurnames[1]}`;
+        } else {
+            return authorSurnames[0];
+        }
+    }
+    
+    let citeR = /\\cite{([^}]+)}/g;
+    document.querySelectorAll("p")
+        .forEach(p => {
+            let replacement = p.innerText.replaceAll(citeR, (m, p, off, s) => {
+                p = p.trim();
                 let index = bibtexKeys.indexOf(p);
                 let v = String(index + 1);
-                return `<a href="#${v}">[${v}]</a>`;
+                return `<a href="#${v}">${authorName(bibtexEntries[index])}</a>`;
             });
             p.innerHTML = replacement;
         });
+
 });
