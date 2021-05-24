@@ -1,7 +1,7 @@
 # Setup
-title:        "pip install fairness"
-tagline:      A hands-on tutorial at FAT* 2019.
-baseurl:      "/fatconference-2019-toolkit-tutorial/"
+title:        "Fairness in Networks"
+tagline:      A tutorial at KDD 2021
+baseurl:      "/kdd-2021-network-fairness-tutorial/"
 paginate:     1
 locale:       "en"
 exclude:      [ "README.md", "Gemfile.lock", "Gemfile", "jekyll-cayman-theme.gemspec" ]
@@ -9,7 +9,7 @@ exclude:      [ "README.md", "Gemfile.lock", "Gemfile", "jekyll-cayman-theme.gem
 # About/contact
 author:
   name:       Sorelle Friedler, Carlos Scheidegger, Suresh Venkatasubramanian
-  url:        https://algofairness.github.io/fatconference-2019-toolkit-tutorial/
+  url:        https://algofairness.github.io/kdd-2021-network-fairness-tutorial/
 
 # Gems
 gems:
