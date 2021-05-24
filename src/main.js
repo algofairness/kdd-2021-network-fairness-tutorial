@@ -55,5 +55,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 let v = String(index + 1);
                 return `<a href="#${v}">[${v}]</a>`;
             });
+            p.innerHTML = replacement;
         });
 });
