@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // replace references in text
 
-    let citepR = /\\citep{([^}]+)}/;
+    let citepR = /\\citep{([^}]+)}/g;
     document.querySelectorAll("p")
         .forEach(p => {
             let replacement = p.innerText.replaceAll(citepR, (m, p, off, s) => {
