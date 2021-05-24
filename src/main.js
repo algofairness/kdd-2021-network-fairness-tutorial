@@ -26,9 +26,15 @@ function setupReferences(sel)
     // sel.text(d => d.citationKey);
 }
 
+function replaceCites(sel)
+{
+    sel.
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let refsEl = d3.selectAll("#refs").node();
     let bibtexEntries = bibtexParse.toJSON(refs.innerText);
+    let bibtexKeys = bibtexKeys.map(e => e.citationKey);
     let header = refsEl.previousElementSibling;
 
     console.log(bibtexEntries);
@@ -45,5 +51,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .call(setupReferences);
 
     // replace references in text
-    
+
+    let citepR = /\\citep{([^}]+)}/;
+    document.querySelectorAll("p")
+        .forEach(p => {
+            let replacement = p.innerText.replaceAll(citepR, (m, p, off, s) => {
+                let index = bibtexKeys.indexOf(p);
+                let v = String(index + 1);
+                return `<a href="#${v}">[${v}]</a>`;
+            });
+        });
 });
