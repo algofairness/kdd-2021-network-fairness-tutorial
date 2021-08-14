@@ -12,7 +12,9 @@ title: {{ site.name }}
 * Where: [KDD 2021](https://www.kdd.org/kdd2021/)
 * When: TBD
 * Who: [Sorelle Friedler](https://sorelle.friedler.net), [Carlos Scheidegger](https://cscheid.net), [Suresh Venkatasubramanian](http://www.cs.utah.edu/~suresh), [Aaron Clauset](https://www.colorado.edu/cs/aaron-clauset)
-* What: [tutorial description, PDF format](full-version.pdf)
+* What:
+  - [tutorial description, PDF format](full-version.pdf)
+  - [presentation slides](https://docs.google.com/presentation/d/1QFLNzTuWMv2il-V477kcpg3QnmGa8vXem9zxN5QLG68/edit?usp=sharing)
 
 As ML systems have become more broadly adopted in high-stakes settings, so should our scrutiny of them. 
 The field of _fairness_ in data mining and machine learning has blossomed in the last decade, but most of the attention has been directed at tabular and image data.  
